@@ -9,10 +9,10 @@ export function Footer() {
           <div className="space-y-3">
             <div className="flex items-center gap-2 font-display font-bold text-lg">
               <GraduationCap className="h-6 w-6 text-primary" />
-              Sponsor-a-Student
+              EduChain
             </div>
             <p className="text-sm text-sidebar-foreground/70">
-              Transparent blockchain-powered scholarships connecting students with alumni sponsors.
+              Transparent blockchain-powered milestone scholarships connecting students with alumni sponsors.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-sidebar-border mt-8 pt-6 text-center text-sm text-sidebar-foreground/50">
-          © 2026 Sponsor-a-Student. Built on blockchain for transparency.
+          © 2026 EduChain. Transparent Milestone Scholarship Network.
         </div>
       </div>
     </footer>

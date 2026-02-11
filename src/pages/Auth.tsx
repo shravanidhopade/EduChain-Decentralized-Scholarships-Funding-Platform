@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
-import { Wallet, GraduationCap, Users, ShieldCheck, Check } from "lucide-react";
+import { PageBreadcrumb } from "@/components/shared/PageBreadcrumb";
+import { Wallet, GraduationCap, Users, ShieldCheck, Check, ArrowLeft } from "lucide-react";
 
 const roles = [
   { id: "student", label: "Student", icon: <GraduationCap className="h-6 w-6" />, desc: "Apply for scholarships", path: "/student" },
@@ -19,12 +20,15 @@ const Auth = () => {
       <Navbar />
       <div className="min-h-screen flex items-center justify-center px-4 pt-16">
         <div className="w-full max-w-md space-y-8">
-          <div className="text-center">
+          <div>
+            <PageBreadcrumb crumbs={[{ label: "Connect Wallet" }]} />
+            <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4">
+              <ArrowLeft className="mr-1 h-4 w-4" /> Back to Home
+            </Link>
             <h1 className="text-3xl font-display font-bold">Connect & Continue</h1>
-            <p className="mt-2 text-muted-foreground">Link your wallet to access the platform.</p>
+            <p className="mt-2 text-muted-foreground">Link your wallet to access EduChain.</p>
           </div>
 
-          {/* Wallet */}
           <div className="bg-card rounded-xl p-6 border border-border card-elevated space-y-4">
             {!connected ? (
               <Button className="w-full py-6 text-base" onClick={() => setConnected(true)}>
@@ -41,7 +45,6 @@ const Auth = () => {
             )}
           </div>
 
-          {/* Role Selection */}
           {connected && (
             <div className="space-y-4 animate-fade-up">
               <p className="text-sm font-medium text-center">Select your role</p>
@@ -63,11 +66,16 @@ const Auth = () => {
               </div>
 
               {selectedRole && (
-                <Link to={roles.find((r) => r.id === selectedRole)!.path}>
-                  <Button className="w-full py-6 text-base mt-4">
-                    Continue as {roles.find((r) => r.id === selectedRole)!.label}
+                <div className="space-y-2">
+                  <Link to={roles.find((r) => r.id === selectedRole)!.path}>
+                    <Button className="w-full py-6 text-base">
+                      Continue as {roles.find((r) => r.id === selectedRole)!.label}
+                    </Button>
+                  </Link>
+                  <Button variant="ghost" className="w-full" onClick={() => { setSelectedRole(null); setConnected(false); }}>
+                    Cancel
                   </Button>
-                </Link>
+                </div>
               )}
             </div>
           )}

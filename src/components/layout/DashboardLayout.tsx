@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { GraduationCap, Menu, X, LogOut } from "lucide-react";
+import { GraduationCap, Menu, LogOut, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface NavItem {
   label: string;
@@ -18,15 +19,14 @@ interface DashboardLayoutProps {
 export function DashboardLayout({ children, navItems, role }: DashboardLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="min-h-screen flex bg-background">
-      {/* Mobile overlay */}
       {sidebarOpen && (
         <div className="fixed inset-0 bg-foreground/40 z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-sidebar text-sidebar-foreground flex flex-col transition-transform lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -34,7 +34,7 @@ export function DashboardLayout({ children, navItems, role }: DashboardLayoutPro
       >
         <div className="flex items-center gap-2 px-5 h-16 border-b border-sidebar-border">
           <GraduationCap className="h-6 w-6 text-sidebar-primary" />
-          <span className="font-display font-bold text-base">Sponsor-a-Student</span>
+          <span className="font-display font-bold text-base">EduChain</span>
         </div>
 
         <div className="px-4 py-3">
@@ -62,7 +62,14 @@ export function DashboardLayout({ children, navItems, role }: DashboardLayoutPro
           })}
         </nav>
 
-        <div className="p-4 border-t border-sidebar-border">
+        <div className="p-4 border-t border-sidebar-border space-y-2">
+          <button
+            onClick={toggleTheme}
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
+          </button>
           <Link to="/">
             <Button variant="ghost" size="sm" className="w-full justify-start gap-2 text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent">
               <LogOut className="h-4 w-4" /> Disconnect
@@ -71,7 +78,6 @@ export function DashboardLayout({ children, navItems, role }: DashboardLayoutPro
         </div>
       </aside>
 
-      {/* Main */}
       <div className="flex-1 flex flex-col min-w-0">
         <header className="h-16 border-b border-border bg-card flex items-center px-4 gap-4">
           <button className="lg:hidden text-foreground" onClick={() => setSidebarOpen(true)}>

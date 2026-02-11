@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Plus, X, Upload } from "lucide-react";
+import { PageBreadcrumb } from "@/components/shared/PageBreadcrumb";
+import { Plus, X, Upload, ArrowLeft } from "lucide-react";
 
 const StudentRegistration = () => {
   const [milestones, setMilestones] = useState(["Enrollment Verification", ""]);
@@ -14,6 +16,10 @@ const StudentRegistration = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="container mx-auto px-4 py-24 max-w-2xl">
+        <PageBreadcrumb crumbs={[{ label: "Student", path: "/student" }, { label: "Apply" }]} />
+        <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4">
+          <ArrowLeft className="mr-1 h-4 w-4" /> Back to Home
+        </Link>
         <h1 className="text-3xl font-display font-bold mb-2">Apply for Sponsorship</h1>
         <p className="text-muted-foreground mb-8">Complete your profile to be matched with sponsors.</p>
 
@@ -30,8 +36,8 @@ const StudentRegistration = () => {
           </div>
 
           <div className="space-y-2">
-            <Label>Funding Required (USD)</Label>
-            <Input type="number" placeholder="e.g. 10000" />
+            <Label>Funding Required (₹)</Label>
+            <Input type="number" placeholder="e.g. 500000" />
           </div>
 
           <div className="space-y-2">
@@ -77,7 +83,12 @@ const StudentRegistration = () => {
             </div>
           </div>
 
-          <Button className="w-full py-6 text-base">Submit Application</Button>
+          <div className="flex gap-3">
+            <Link to="/" className="flex-1">
+              <Button variant="outline" className="w-full py-6 text-base">Cancel</Button>
+            </Link>
+            <Button className="flex-1 py-6 text-base">Submit Application</Button>
+          </div>
         </div>
       </div>
       <Footer />
