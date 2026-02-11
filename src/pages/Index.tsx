@@ -50,12 +50,12 @@ const Index = () => {
         <div className="relative container mx-auto px-4 py-32 text-center">
           <div className="animate-fade-up max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-display font-bold text-secondary-foreground leading-tight">
-              Empowering Students Through{" "}
-              <span className="text-gradient">Transparent Blockchain</span>{" "}
-              Sponsorship
+              EduChain –{" "}
+              <span className="text-gradient">Transparent Milestone</span>{" "}
+              Scholarship Network
             </h1>
             <p className="mt-6 text-lg md:text-xl text-secondary-foreground/70 max-w-2xl mx-auto">
-              A milestone-based scholarship platform connecting students with alumni sponsors. 
+              A blockchain-powered platform connecting students with alumni sponsors. 
               Every fund release is verifiable, transparent, and accountable.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-up-delay-1">
@@ -78,7 +78,7 @@ const Index = () => {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold">Why Sponsor-a-Student?</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold">Why EduChain?</h2>
             <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
               Built on blockchain technology for complete transparency and trust.
             </p>
