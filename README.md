@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+EduChain
 
-## Project info
+A Decentralized Scholarship Sponsorship Platform Using Algorand Blockchain
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+1. Introduction
 
-## How can I edit this code?
+EduChain is a decentralized scholarship sponsorship platform designed to connect students seeking financial assistance with sponsors willing to fund their education. The system integrates a modern full-stack web application with blockchain technology to ensure transparency, trust, and secure fund transfers.
 
-There are several ways of editing your application.
+Unlike traditional scholarship systems that rely on centralized control and manual verification, EduChain uses wallet-based authentication and blockchain-backed transactions. Every sponsorship transaction is recorded on the Algorand TestNet, making the funding process verifiable and tamper-proof.
 
-**Use Lovable**
+This project demonstrates the practical implementation of decentralized finance (DeFi) concepts in the education funding domain.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+2. Problem Statement
 
-Changes made via Lovable will be committed automatically to this repo.
+Conventional scholarship sponsorship platforms suffer from:
 
-**Use your preferred IDE**
+Lack of transparency in fund transfers
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Delays in payment processing
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Manual and opaque verification procedures
 
-Follow these steps:
+Centralized control over fund management
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+No real-time tracking of sponsorship transactions
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+EduChain addresses these challenges by combining blockchain payments, wallet-based identity, and a structured backend system for application management.
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. System Overview
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+The platform consists of three main layers:
 
-**Edit a file directly in GitHub**
+Frontend (User Interface) – Built using React and TypeScript
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Backend (Application Server) – Built using Node.js, Express, and MongoDB
 
-**Use GitHub Codespaces**
+Blockchain Layer – Algorand TestNet for secure ALGO transfers
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+High-Level Workflow
 
-## What technologies are used for this project?
+User connects Algorand wallet using Pera Wallet.
 
-This project is built with:
+Backend checks whether the wallet is already registered.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+If new, the user selects a role (Student or Sponsor).
 
-## How can I deploy this project?
+Students submit scholarship applications.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Sponsors browse student applications.
 
-## Can I connect a custom domain to my Lovable project?
+Sponsor selects a student and sends ALGO via blockchain.
 
-Yes, you can!
+Transaction is signed using Pera Wallet.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Transaction ID is stored in MongoDB for record keeping.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+4. Technology Stack
+Frontend
+
+React (Vite + TypeScript)
+
+Tailwind CSS
+
+ShadCN UI Components
+
+Lucide Icons
+
+Pera Wallet Connect SDK
+
+Algorand JavaScript SDK
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB Atlas
+
+Mongoose
+
+Blockchain
+
+Algorand TestNet
+
+Pera Wallet
+
+PyTeal (Smart Contract Development – Work in Progress)
+
+
+
+Future Enhancements
+
+Milestone-based escrow smart contract
+
+Admin verification workflow
+
+Partial funding by multiple sponsors
+
+Real-time blockchain explorer integration
+
+Dashboard analytics and reporting
+
+On-chain milestone verification
+
+
+

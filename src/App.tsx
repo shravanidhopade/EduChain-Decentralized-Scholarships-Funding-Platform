@@ -7,8 +7,16 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import StudentRegistration from "./pages/student/StudentRegistration";
+import SponsorProfile from "@/pages/sponsor/SponsorProfile";
+
+import SponsorRegistration from "./pages/sponsor/SponsorRegistration";
+
+import SelectRole from "./pages/SelectRole";
+
+
+
 import SponsorDashboard from "./pages/sponsor/SponsorDashboard";
-import SponsorshipDetails from "./pages/sponsor/SponsorshipDetails";
+import SponsorDetails from "./pages/sponsor/SponsorDetails";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Transparency from "./pages/Transparency";
 import MentorConnect from "./pages/MentorConnect";
@@ -32,7 +40,7 @@ const App = () => (
           <Route path="/student/passport" element={<ProgressPassport />} />
           <Route path="/student/register" element={<StudentRegistration />} />
           <Route path="/sponsor" element={<SponsorDashboard />} />
-          <Route path="/sponsor/details/:id" element={<SponsorshipDetails />} />
+          <Route path="/sponsor/details/:id" element={<SponsorDetails />} />
           <Route path="/sponsor/sponsorships" element={<SponsorDashboard />} />
           <Route path="/sponsor/impact" element={<SponsorDashboard />} />
           <Route path="/sponsor/messages" element={<SponsorDashboard />} />
@@ -43,6 +51,11 @@ const App = () => (
           <Route path="/transparency" element={<Transparency />} />
           <Route path="/mentor" element={<MentorConnect />} />
           <Route path="/passport" element={<ProgressPassport />} />
+          <Route path="/sponsor/profile" element={<SponsorProfile />} />
+          <Route path="/sponsor/register" element={<SponsorRegistration />} />
+          
+          <Route path="/select-role" element={<SelectRole />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
